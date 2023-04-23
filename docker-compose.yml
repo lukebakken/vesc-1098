@@ -3,5 +3,16 @@ version: "3"
 services:
   rabbitmq:
     image: rabbitmq:3-management
+    volumes:
+      - ./rmq/data:/var/lib/rabbitmq/mnesia
+      - ./rmq/log:/var/log/rabbitmq
+      - ./rabbitmq.conf:/etc/rabbitmq/rabbitmq.conf:ro
+      - ./enabled_plugins:/etc/rabbitmq/enabled_plugins:ro
+    ports:
+      # HOST:CONTAINER
+      - 15672:15672
   auth-backend:
     build: rabbitmq_auth_backend_django
+    ports:
+      # HOST:CONTAINER
+      - 8000:8000
