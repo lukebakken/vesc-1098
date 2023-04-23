@@ -3,6 +3,9 @@ version: "3"
 services:
   rabbitmq:
     image: rabbitmq:3-management
+    depends_on:
+      - http-auth-backend
+      - ldap-auth-backend
     volumes:
       - ./rmq/data:/var/lib/rabbitmq/mnesia
       - ./rmq/log:/var/log/rabbitmq
@@ -17,4 +20,4 @@ services:
       # HOST:CONTAINER
       - 8000:8000
   ldap-auth-backend:
-    build: ldap-auth-backend
+    image: bitnami/openldap:latest

@@ -12,7 +12,7 @@ olcDatabase: bdb
 # Domain name (e.g. rabbitmq.com)
 olcSuffix: dc=rabbitmq,dc=com
 # Location on system where database is stored
-olcDbDirectory: /var/lib/ldap
+olcDbDirectory: /bitnami/openldap/data
 # Manager of the database
 olcRootDN: cn=admin,dc=rabbitmq,dc=com
 olcRootPW: admin

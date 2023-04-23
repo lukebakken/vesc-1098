@@ -2,7 +2,7 @@ dn: cn=module,cn=config
 cn: module
 objectClass: olcModuleList
 olcModuleLoad: memberof
-olcModulePath: /usr/lib/ldap
+olcModulePath: /opt/bitnami/openldap/lib/openldap
 
 dn: olcOverlay={0}memberof,olcDatabase={1}bdb,cn=config
 objectClass: olcConfig
