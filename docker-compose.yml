@@ -11,8 +11,10 @@ services:
     ports:
       # HOST:CONTAINER
       - 15672:15672
-  auth-backend:
-    build: rabbitmq_auth_backend_django
+  http-auth-backend:
+    build: http-auth-backend
     ports:
       # HOST:CONTAINER
       - 8000:8000
+  ldap-auth-backend:
+    build: ldap-auth-backend
