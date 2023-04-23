@@ -1,0 +1,7 @@
+version: "3"
+
+services:
+  rabbitmq:
+    image: rabbitmq:3-management
+  auth-backend:
+    build: rabbitmq_auth_backend_django
