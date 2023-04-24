@@ -9,6 +9,7 @@ services:
     volumes:
       - ./rmq/data:/var/lib/rabbitmq/mnesia
       - ./rmq/log:/var/log/rabbitmq
+      - ./advanced.config:/etc/rabbitmq/advanced.config:ro
       - ./rabbitmq.conf:/etc/rabbitmq/rabbitmq.conf:ro
       - ./enabled_plugins:/etc/rabbitmq/enabled_plugins:ro
     ports:
