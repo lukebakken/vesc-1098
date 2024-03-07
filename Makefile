@@ -24,5 +24,5 @@ rmq-perms:
 	sudo chown -R '999:999' $(CURDIR)/certs/*rabbitmq*.pem
 
 verify:
-	openssl s_client -connect localhost:5771 -CAfile $(CURDIR)/certs/ca_certificate.pem -servername rabbitmq
-	openssl s_client -connect localhost:15771 -CAfile $(CURDIR)/certs/ca_certificate.pem -servername rabbitmq
+	echo 'Q' | openssl s_client -connect localhost:5771 -CAfile $(CURDIR)/certs/ca_certificate.pem -servername rabbitmq
+	echo 'Q' | openssl s_client -connect localhost:15771 -CAfile $(CURDIR)/certs/ca_certificate.pem -servername rabbitmq

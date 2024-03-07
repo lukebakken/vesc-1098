@@ -1,6 +1,17 @@
 # vesc-1098
 VESC-1098
 
+## Encode
+
+NOTE: You must encode the double-quotes!
+
+```
+rabbitmqctl encode '"grapefruit"' TEST1234
+
+Encrypting value ...
+{encrypted,<<"UDGy/S25C1F8uG4PJjzm48TvQhse4GfCHp3XiUs680HlcXMTPMmFLUrXGU7yYxUb">>}
+```
+
 ## Certs
 
 ```
