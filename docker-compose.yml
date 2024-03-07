@@ -14,7 +14,8 @@ services:
       - ./certs:/etc/rabbitmq/certs:ro
     ports:
       # HOST:CONTAINER
-      - 15672:15672
+      - 15771:15771
+      - 5771:5771
   ldap-auth-backend:
     image: bitnami/openldap:latest
     environment:
