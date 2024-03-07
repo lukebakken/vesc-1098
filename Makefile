@@ -15,9 +15,10 @@ up: rmq-perms
 
 perms:
 	sudo chown -R "$$(id -u):$$(id -g)" $(CURDIR)/rmq
+	sudo chown -R "$$(id -u):$$(id -g)" $(CURDIR)/certs
 	chmod 0666 $(CURDIR)/certs/*
 
 rmq-perms:
+	chmod 0666 $(CURDIR)/certs/*
 	sudo chown -R '999:999' $(CURDIR)/rmq
 	sudo chown -R '999:999' $(CURDIR)/certs/*rabbitmq*.pem
-	chmod 0666 $(CURDIR)/certs/*
