@@ -11,8 +11,17 @@ services:
       - ./advanced.config:/etc/rabbitmq/advanced.config:ro
       - ./rabbitmq.conf:/etc/rabbitmq/rabbitmq.conf:ro
       - ./enabled_plugins:/etc/rabbitmq/enabled_plugins:ro
+      - ./certs:/etc/rabbitmq/certs:ro
     ports:
       # HOST:CONTAINER
       - 15672:15672
   ldap-auth-backend:
     image: bitnami/openldap:latest
+    environment:
+      - LDAP_ENABLE_TLS=yes
+      - LDAP_LDAPS_PORT_NUMBER=1636
+      - LDAP_TLS_CERT_FILE=/bitnami/openldap/certs/server_ldap-auth-backend_certificate.pem
+      - LDAP_TLS_KEY_FILE=/bitnami/openldap/certs/server_ldap-auth-backend_key.pem
+      - LDAP_TLS_CA_FILE=/bitnami/openldap/certs/ca_certificate.pem
+    volumes:
+      - ./certs:/bitnami/openldap/certs:ro
