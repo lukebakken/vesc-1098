@@ -1,8 +1,9 @@
 .PHONY: clean down up perms rmq-perms
 
-PULL ?= missing
+PULL ?= always
 
 clean: perms
+	docker compose rm --force
 	git clean -xffd
 
 down:
