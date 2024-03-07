@@ -5,15 +5,15 @@ VESC-1098
 
 ```
 git clone https://github.com/rabbitmq/tls-gen.git
-cd tls-gen/basic
-
-# NOTE: certs for RabbitMQ are password-protected
-make CN=rabbitmq PASSWORD=grapefruit
+cd tls-gen
 
 # NOTE: certs for OpenLDAP are NOT password-protected
-make CN=ldap-auth-backend gen-client
+make -C basic CN=ldap-auth-backend
 
-cp -v result/*.pem /path/to/vesc-1098/certs
+# NOTE: certs for RabbitMQ are password-protected
+make -C basic CN=rabbitmq PASSWORD=grapefruit gen-client
+
+cp -v basic/result/*.pem /path/to/vesc-1098/certs
 ```
 
 ## LDAP queries

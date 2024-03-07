@@ -18,6 +18,7 @@ services:
   ldap-auth-backend:
     image: bitnami/openldap:latest
     environment:
+      - BITNAMI_DEBUG=yes
       - LDAP_ENABLE_TLS=yes
       - LDAP_LDAPS_PORT_NUMBER=1636
       - LDAP_TLS_CERT_FILE=/bitnami/openldap/certs/server_ldap-auth-backend_certificate.pem

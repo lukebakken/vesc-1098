@@ -14,7 +14,10 @@ up: rmq-perms
 	docker compose up --build --pull $(PULL)
 
 perms:
-	sudo chown -R "$(USER):$(USER)" rmq
+	sudo chown -R "$$(id -u):$$(id -g)" $(CURDIR)/rmq
+	chmod 0666 $(CURDIR)/certs/*
 
 rmq-perms:
-	sudo chown -R '999:999' rmq
+	sudo chown -R '999:999' $(CURDIR)/rmq
+	sudo chown -R '999:999' $(CURDIR)/certs/*rabbitmq*.pem
+	chmod 0666 $(CURDIR)/certs/*
